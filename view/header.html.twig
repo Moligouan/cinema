@@ -9,24 +9,27 @@
 </head>
 <body>
 <header>
-	<h1>Médiathèque</h1>
-        {% if session.user is defined %}
-				
-				<a href="films">Films</a>
+	<nav>
+		<h1>Médiathèque</h1>
+		{% if session.user is defined %}
 
-				<a href="creation">Creation</a>
-				
-				<button>
-					<a href="logout">Logout</a>
-				</button>
+			<a href="films">Films</a>
 
-			{% else %}
-					<a href="films">Films</a>
-				
-					<a href="login_user">Compte</a>
-				
+			<a href="creation">Creation</a>
 
-			{% endif %}
-	<input type="submit" name="recherche">
-	<button></button>
+			<button>
+				<a href="logout">Logout</a>
+			</button>
+
+		{% else %}
+			<a href="films">Films</a>
+
+			<a href="login_user">Compte</a>
+
+		{% endif %}
+	</nav>
+	<div>
+		<input type="submit" name="recherche">
+		<button></button>
+	</div>
 </header><hr>
