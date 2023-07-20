@@ -11,21 +11,17 @@
 <header>
 	<h1>Médiathèque</h1>
         {% if session.user is defined %}
-				<button>
-					<a href="films">Films</a>
-				</button>
+				
+				<a href="films">Films</a>
 
-				<button>
-					<a href="creation">Creation</a>
-				</button>
+				<a href="creation">Creation</a>
+				
 				<button>
 					<a href="logout">Logout</a>
 				</button>
 
 			{% else %}
-				<button>
 					<a href="films">Films</a>
-				</button>
 				<button>
 					<a href="login_user">Login</a>
 				</button>
