@@ -10,6 +10,7 @@
 <body>
 <header>
 	<nav>
+		<img src="https://cdn-icons-png.flaticon.com/512/92/92196.png">
 		<h1>Médiathèque</h1>
 		{% if session.user is defined %}
 
@@ -17,9 +18,7 @@
 
 			<a href="creation">Creation</a>
 
-			<button>
-				<a href="logout">Logout</a>
-			</button>
+			<button href="logout">Logout</button>
 
 		{% else %}
 			<a href="films">Films</a>
