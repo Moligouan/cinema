@@ -9,6 +9,7 @@ header {
    background-color: rgba(53, 58, 64, 255);
    text-align: center;
    width: 100%;
+   align-items: center;
 }
 
 footer {
