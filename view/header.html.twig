@@ -9,5 +9,23 @@
 </head>
 <body>
 <header>
-        Ceci est notre header
+        {% if session.user is defined %}
+
+
+				<button>
+					<a href="Creation">Creation</a>
+				</button>
+				<button>
+					<a href="logout">Logout</a>
+				</button>
+
+			{% else %}
+				<button>
+					<a href="films">Films</a>
+				</button>
+				<button>
+					<a href="login_user">Login</a>
+				</button>
+
+			{% endif %}
 </header><hr>
