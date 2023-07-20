@@ -14,6 +14,10 @@ header {
    justify-content: space-between;
 }
 
+header img {
+   width: 30px;
+}
+
 header nav {
    display: flex;
    align-items: center;
@@ -26,8 +30,6 @@ header h1 {
 
 header a {
    text-decoration: none;
-   font-size: 17px;
-   color: white;
    opacity: 0.5;
    margin: 5px;
 }
@@ -35,4 +37,18 @@ header a {
 header a:hover {
    opacity: 1;
    transition: 0.5s;
+}
+
+header button {
+   background-color: rgba(53, 58, 64, 255);
+   border: 2px solid white;
+   color: white;
+   border-radius: 10%;
+   padding: 8px;
+}
+
+header a,
+header button {
+   font-size: 17px;
+   color: white;
 }
