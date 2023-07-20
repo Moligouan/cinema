@@ -12,6 +12,7 @@ header {
    height: 60px;
    align-items: center;
    justify-content: space-between;
+   box-shadow: 0px 8px 20px black;
 }
 
 header img {
@@ -21,6 +22,10 @@ header img {
 header nav {
    display: flex;
    align-items: center;
+}
+
+header div {
+   margin-right: 20px;
 }
 
 header h1 {
@@ -51,4 +56,14 @@ header a,
 header button {
    font-size: 17px;
    color: white;
+}
+
+#hc,
+#hnc {
+   font-size: 12px;
+   margin: 10px 6px;
+}
+
+#hnc {
+   color: rgba(78, 119, 191, 255);
 }
