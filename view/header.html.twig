@@ -31,4 +31,16 @@
 		<input type="text" name="recherche">
 		<button>Recherche</button>
 	</div>
-</header><hr>
+</header>
+{% if session.user is defined %}
+
+	<p id="hc">
+		Bienvenue sur notre Médiathèque (username) !</p>
+
+{% else %}
+
+	<p id="hnc">
+		connectez vous pour créer des films</p>
+
+{% endif %}
+<hr>
