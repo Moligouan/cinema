@@ -3,8 +3,8 @@ body {
    margin: 0px;
 }
 
-header,
-footer {
+header {
+   display: flex;
    color: white;
    background-color: rgba(53, 58, 64, 255);
    text-align: center;
