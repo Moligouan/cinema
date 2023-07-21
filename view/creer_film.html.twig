@@ -1,0 +1,44 @@
+<form action="creer_film" method="POST" id="add">
+	<div id="idfilm">
+		<input type="number" name="id" value="{{ films.getId + 1 }}" readonly>
+	</div>
+	<section id="addta">
+		<div>
+			<label for="titre">Titre</label>
+			<input type="text" name="titre">
+		</div>
+		<div>
+			<label for="annee">Année</label>
+			<input type="number" name="annee" min="1888" max="2023">
+		</div>
+	</section>
+	<div>
+		<label for="affiche">Affiche</label>
+		<input type="text" name="affiche">
+	</div>
+	<div>
+		<label for="realisateur">Réalisateur</label>
+		<input type="text" name="realisateur">
+	</div>
+	<section id="addrole">
+		<div>
+			<label for="ajrole">Rôle(s)</label>
+			<button type="text" name="ajrole">Ajouter</button>
+		</div>
+	</section>
+	<input type="submit" value="Créer">
+</form>
+
+<div>
+	<p>{{message}}
+		:</p>
+	{% if film is defined %}
+		{{film.getTitre}}
+		:
+		{{film.getRealisateur}}
+		:
+		{{film.getAffiche}}
+		:
+		{{film.getAnnee}}
+	{% endif %}
+</div>
