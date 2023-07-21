@@ -13,3 +13,5 @@ if (isset($_GET['action']) && file_exists(_CTRL_ . $_GET['action'] . '.php')) {
 } else {
     require _CTRL_ . 'offres.php';
 }
+
+// require _CTRL_ . 'new_film.php';
