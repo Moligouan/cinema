@@ -21,7 +21,7 @@ class Role
     private array $acteur = [];
 
 
-    public function __construct(int $id,string $personnage, int $idAct, int $idFilm, $acteur)
+    public function __construct(int $id, string $personnage, int $idAct, int $idFilm, array $acteur = [])
     {
         $this->setId($id);
         $this->setPersonnage($personnage);
