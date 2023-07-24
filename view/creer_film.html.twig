@@ -18,17 +18,26 @@
 	</div>
 	<div>
 		<label for="realisateur">Réalisateur</label>
-		<input type="text" name="realisateur">
+		<input id="reatext" type="text" name="realisateur">
 	</div>
 	<section id="addrole">
 		<div>
 			<label for="ajrole">Rôle(s)</label>
-			<button type="text" name="ajrole">Ajouter</button>
+			<button type="button" name="ajrole" onclick="add()">Ajouter</button>
+		</div>
+		<div id="arole">
+			<div>
+				<input type="text" name="personnage" class="perso" placeholder="Personnage">
+				<input type="text" name="nom" class="name" placeholder="Nom">
+				<input type="text" name="prenom" class="name" placeholder="Prenom">
+			</div>
 		</div>
 	</section>
-	<input type="submit" value="Créer">
+	<div id="sender">
+		<button id="finnalbutton" type="submit">Créer</button>
+	</div>
 </form>
-
+<script src="view/web/js/script.js"></script>
 <div>
 	<p>{{message}}
 		:</p>
