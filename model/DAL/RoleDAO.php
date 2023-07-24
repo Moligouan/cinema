@@ -35,7 +35,7 @@ class RoleDAO extends FilmDao
     public function getOne($id)
     {
 
-        $query = $this->BDD->prepare('SELECT * FROM roles WHERE films.idRole = :id_role');
+        $query = $this->BDD->prepare('SELECT * FROM roles WHERE roles.idRole = :id_role');
         $query->execute(array(':id_role' => $id));
         $data = $query->fetch();
         $offer = new Film($data['idRole'], $data['personnage'], $data['idActeur'], $data['idFilm']);
