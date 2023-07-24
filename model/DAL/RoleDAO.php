@@ -22,7 +22,7 @@ class RoleDAO extends FilmDao
     {
 
         $valeurs = ['id' => $data->getId(),'personnage' => $data->getPersonnage(), 'idAct' => $data->getIdAct(), 'idFilm' => $data->getIdFilm()];
-        $requete = 'INSERT INTO roles (idActeur, idFilm, personnage, idRole) VALUES (:idAct, :idFilm , :personnage, :idRole)';
+        $requete = 'INSERT INTO roles (idActeur, idFilm, personnage, idRole) VALUES (:idAct, :idFilm , :personnage, :id)';
         $insert = $this->BDD->prepare($requete);
         if (!$insert->execute($valeurs)) {
             return false;
