@@ -16,13 +16,17 @@ class Role
 
     private $id;
     private $personnage;
+    private $idAct;
+    private $idFilm;
     private array $acteur = [];
 
 
-    public function __construct($id, $personnage, $acteur)
+    public function __construct(int $id,string $personnage, int $idAct, int $idFilm, $acteur)
     {
         $this->setId($id);
         $this->setPersonnage($personnage);
+        $this->setIdAct($idAct);
+        $this->setIdFilm($idFilm);
         $this->setNom($acteur);
     }
 
@@ -84,6 +88,46 @@ class Role
     public function setActeur($acteur)
     {
         $this->acteur = $acteur;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of idAct
+     */ 
+    public function getIdAct()
+    {
+        return $this->idAct;
+    }
+
+    /**
+     * Set the value of idAct
+     *
+     * @return  self
+     */ 
+    public function setIdAct($idAct)
+    {
+        $this->idAct = $idAct;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of idFilm
+     */ 
+    public function getIdFilm()
+    {
+        return $this->idFilm;
+    }
+
+    /**
+     * Set the value of idFilm
+     *
+     * @return  self
+     */ 
+    public function setIdFilm($idFilm)
+    {
+        $this->idFilm = $idFilm;
 
         return $this;
     }
