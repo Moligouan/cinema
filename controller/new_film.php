@@ -7,6 +7,7 @@ $filmDao = new FilmDAO();
 // $status = $filmDao->add($film);
 // $message = "";
 $nfilm = null;
+$message = null;
 try {
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["titre"]) && isset($_POST["realisateur"]) && isset($_POST["affiche"]) && isset($_POST["annee"])) {
