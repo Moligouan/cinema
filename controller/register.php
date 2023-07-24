@@ -2,7 +2,6 @@
 
 $userDAO = new UserDAO();
 $user = null;
-$existingEmails = []; // An array to store existing emails
 $msg = "";
 $errMsg = "";
 
