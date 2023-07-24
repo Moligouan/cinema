@@ -16,16 +16,14 @@ class Role
 
     private $id;
     private $personnage;
-    private $nom;
-    private $prenom;
+    private array $acteur = [];
 
 
-    public function __construct($id, $personnage, $nom, $prenom)
+    public function __construct($id, $personnage, $acteur)
     {
         $this->setId($id);
         $this->setPersonnage($personnage);
-        $this->setNom($nom);
-        $this->setPrenom($prenom);
+        $this->setNom($acteur);
     }
 
     
@@ -44,22 +42,6 @@ class Role
     public function getPersonnage()
     {
         return $this->personnage;
-    }
-
-    /**
-     * Get the value of nom
-     */ 
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * Get the value of prenom
-     */ 
-    public function getPrenom()
-    {
-        return $this->prenom;
     }
 
     /**
@@ -87,25 +69,21 @@ class Role
     }
 
     /**
-     * Set the value of nom
-     *
-     * @return  self
+     * Get the value of acteur
      */ 
-    public function setNom($nom)
+    public function getActeur()
     {
-        $this->nom = $nom;
-
-        return $this;
+        return $this->acteur;
     }
 
     /**
-     * Set the value of prenom
+     * Set the value of acteur
      *
      * @return  self
      */ 
-    public function setPrenom($prenom)
+    public function setActeur($acteur)
     {
-        $this->prenom = $prenom;
+        $this->acteur = $acteur;
 
         return $this;
     }
