@@ -67,3 +67,88 @@ header button {
 #hnc {
    color: rgba(78, 119, 191, 255);
 }
+
+/* ------------------------------ */
+/* ADD */
+
+#add {
+   display: flex;
+   flex-direction: column;
+   padding: 10px 100px;
+}
+
+#add #addta {
+   display: flex;
+   justify-content: space-between;
+}
+
+#add #addta div {
+   width: 50%;
+}
+
+#add div {
+   display: flex;
+   flex-direction: column;
+}
+
+#add #addrole div {
+   flex-direction: row;
+}
+
+#add label {
+   margin: 5px;
+}
+
+#add input {
+   border: 1px solid gray;
+   border-radius: 5px;
+   margin: 5px;
+   height: 25px;
+}
+
+#add input:focus {
+   border: 1px solid black;
+}
+
+#add #addrole #arole {
+   flex-direction: column;
+}
+
+#add #reatext {
+   width: 48%;
+}
+
+#add #arole input {
+   margin-right: 15px;
+   height: 35px;
+}
+
+#add .perso {
+   width: 30%;
+}
+
+#add .name {
+   width: 20%;
+}
+
+#add button {
+   background-color: rgba(107, 118, 122, 255);
+   color: white;
+   border-radius: 5px;
+}
+
+#add #arole button {
+   max-height: 30px;
+   margin-top: 10px;
+}
+
+#add #sender {
+   margin-top: 15px;
+   flex-direction: row;
+   justify-content: center;
+}
+
+#add #finnalbutton {
+   background-color: rgba(2, 120, 254, 255);
+   height: 30px;
+}
