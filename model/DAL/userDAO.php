@@ -78,3 +78,4 @@ class UserDAO extends Dao
         }
         return $user;
     }
+}
