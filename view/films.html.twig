@@ -1,0 +1,12 @@
+<div>
+        <h1>{{ films.idFilm }} - {{ films.titre }}</h1>
+        <p>Réalisé en {{ films.annee }} par {{ films.realisateur }}</p>
+        <p>Avec {{ acteurs.nom }} {{ acteurs.prenom }} dans le rôle de {{ roles.personnage }}</p>
+    </div>
+    <div>
+        <img src="{{ films.affiche }}" alt="{{ films.titre }} Poster">
+    </div>
+    <div>
+        <button>Précédent</button>
+        <button>Suivant</button>
+    </div>
