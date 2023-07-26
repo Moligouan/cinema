@@ -1,24 +1,21 @@
 <form action="creer_film" method="POST" id="add">
-	<div id="idfilm">
-		<input type="number" name="id" value="{{ films.getId + 1 }}" readonly>
-	</div>
 	<section id="addta">
 		<div>
 			<label for="titre">Titre</label>
-			<input type="text" name="titre">
+			<input type="text" name="titre" required>
 		</div>
 		<div>
 			<label for="annee">Année</label>
-			<input type="number" name="annee" min="1888" max="2023">
+			<input type="number" name="annee" min="1888" max="2023" required>
 		</div>
 	</section>
 	<div>
 		<label for="affiche">Affiche</label>
-		<input type="text" name="affiche">
+		<input type="text" name="affiche" required>
 	</div>
 	<div>
 		<label for="realisateur">Réalisateur</label>
-		<input id="reatext" type="text" name="realisateur">
+		<input id="reatext" type="text" name="realisateur" required>
 	</div>
 	<section id="addrole">
 		<div>
@@ -27,9 +24,9 @@
 		</div>
 		<div id="arole">
 			<div>
-				<input type="text" name="personnage" class="perso" placeholder="Personnage">
-				<input type="text" name="nom" class="name" placeholder="Nom">
-				<input type="text" name="prenom" class="name" placeholder="Prenom">
+				<input type="text" name="personnage_1" class="perso" placeholder="Personnage" required>
+				<input type="text" name="nom_1" class="name" placeholder="Nom" required>
+				<input type="text" name="prenom_1" class="name" placeholder="Prenom" required>
 			</div>
 		</div>
 	</section>
@@ -42,6 +39,8 @@
 	<p>{{message}}
 		:</p>
 	{% if film is defined %}
+		{{film.getId}}
+		:
 		{{film.getTitre}}
 		:
 		{{film.getRealisateur}}
