@@ -1,10 +1,10 @@
 {% if session.user is null %}
 
-	<form method="POST" action="register">
+	<form method="POST" action="register" class="register">
 		<div>
 			<label for="Username">Username :
 			</label>
-			<input type="Username" name="Username" required>
+			<input type="Username" name="username" required>
 		</div>
 		<div>
 			<label for="email">Email :
@@ -22,13 +22,13 @@
 			</label>
 			<input type="password" name="confirmPW">
 		</div>
-		<input type="submit" name="Login" required>
-		<p class="registered">{{msg}}</p>
+		<input type="submit" name="register" required>
+		<p>{{msg}}</p>
 	</form>
 
 {% endif %}
 
-<form method="POST" action="login_user">
+<form method="POST" action="user" class="register">
 	<div>
 		<label for="email">Email :
 		</label>
@@ -37,8 +37,9 @@
 	<div>
 		<label for="pw">Mot de passe :
 		</label>
-		<input type="password" name="pw">
+		<input type="password" name="pw" required>
 	</div>
-	<input type="submit" name="Login" required>
+	<input type="submit" name="user" required>
 </form>
-{# Vérifier si l'utilisateur s'est connecté #}
+
+
