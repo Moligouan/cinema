@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && (!empty($_POST['email']) && !empty($
     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $msg = "Invalidated email. Please enter a proper one.";
     } else {
-        $user = new User(null, null, $_POST['email'], $_POST['pw']);
+        $user = new User(null, $_POST['username'], $_POST['email'], $_POST['pw']);
         $query = $userDAO->checkNew($user);
 
         if ($query) {
@@ -25,8 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && (!empty($_POST['email']) && !empty($
     }
 }
 
-echo $twig->render('register.html.twig', [
-    'user' => $user,
+
+echo $twig->render('user.html.twig', [
+    'users' => $user,
     'msg' => $msg,
     'errMsg' => $errMsg
 ]);
