@@ -9,12 +9,31 @@ class ActeurDAO extends RoleDao
 
         $query = $this->BDD->prepare("SELECT idActeur, nom, prenom  FROM acteurs");
         $query->execute();
-        $offers = array();
+        $acteur = array();
 
         while ($data = $query->fetch()) {
-            $role[] = new Role($data['idActeur'], $data['nom'], $data['prenom']);
+            $acteur[] = new Acteur($data['idActeur'], $data['nom'], $data['prenom']);
         }
-        return ($role);
+        return ($acteur);
+    }
+
+    public function fillid()
+    {
+        $query = $this->BDD->prepare("SELECT idActeur FROM acteurs");
+        $query->execute();
+        $countid = 1;
+        while ($data = $query->fetch()) {
+            $test = $this->BDD->prepare('SELECT * FROM acteurs WHERE acteurs.idActeur = :id_acteur');
+            $test->execute(array(':id_acteur' => $countid));
+            $data = $test->fetch();
+            if ($data != NULL){
+                $countid = $countid + 1;
+            }
+            else{
+                return ($countid);
+            }
+        }
+        return ($countid + 1);
     }
 
     //Ajouter une offre
@@ -38,8 +57,21 @@ class ActeurDAO extends RoleDao
         $query = $this->BDD->prepare('SELECT * FROM acteur WHERE acteur.idActeur = :id_acteur');
         $query->execute(array(':id_acteur' => $id));
         $data = $query->fetch();
-        $offer = new Film($data['idActeur'], $data['nom'], $data['prenom']);
+        $acteur = new Acteur($data['idActeur'], $data['nom'], $data['prenom']);
         return ($offer);
+    }
+
+    public function checkact($nom, $prenom){
+        $query = $this->BDD->prepare('SELECT * FROM acteurs WHERE acteurs.nom = :nom AND acteurs.prenom = :prenom');
+        $query->execute(array(':nom' => $nom, ':prenom' => $prenom));
+        $data = $query->fetch();
+        if ($data != NULL){
+            $act = new Acteur($data['idActeur'], $data['nom'], $data['prenom']);
+            return $act;
+        }
+        else {
+            return NULL;
+        }
     }
 
     public function delete($id)
