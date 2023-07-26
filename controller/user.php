@@ -11,14 +11,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && (isset($_POST['email']) && isset($_P
 
     if (gettype($user) == "integer") {
         $msg = "Login error : unknown user";
-    } else if (gettype($user) == "string") {
-        $msg = $user;
+    } else if ($user == null) {
+        $msg = "mot de passe incorrect";
     } else {
         $_SESSION['user'] = $_POST['email'];
         header("Location: films");
     }
+
 }
 
+
 echo $twig->render('user.html.twig', [
-    'user' => $user
+    'users' => $user,
+    'msg' => $msg
 ]);
