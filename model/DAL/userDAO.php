@@ -26,8 +26,8 @@ class UserDAO extends Dao
         try {
             // Préaration des valeurs à stocker dans la requête, qui sortira un booléen qui indiquera si la requête s'est bien exécutée.
             $hashPW = password_hash($user->getPassword(), PASSWORD_DEFAULT);
-            $values = [':email' => $user->getEmail(), ':password' => $hashPW];
-            $q = "INSERT INTO users (email, password) VALUES (:email, :password)";
+            $values = [':username' => $user->getUsername(), ':email' => $user->getEmail(), ':password' => $hashPW];
+            $q = 'INSERT INTO users (username,email,password) VALUES (:username,:email, :password )';
             $insert = $this->BDD->prepare($q);
             if (!$insert->execute($values)) {
                 return false;
@@ -67,8 +67,11 @@ class UserDAO extends Dao
             $user = $q->fetch();
 
             if ($q->rowCount() > 0) {
-                if (password_verify($user['password'], $_POST['pw'])) {
-                    $user = new User($user['id'], $user['username'], $user['email'], $user['password']);
+
+                if (password_verify($_POST['pw'], $user['password'])) {
+                    $user = new User(null, null, $user['email'], $user['password']);
+                } else {
+                    $user = null;
                 }
             } else {
                 $user = 0;
@@ -78,4 +81,8 @@ class UserDAO extends Dao
         }
         return $user;
     }
+    public function delete($id)
+    {
+    }
+
 }
