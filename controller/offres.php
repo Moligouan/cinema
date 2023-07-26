@@ -1,7 +1,7 @@
 <?php
 
 //On appelle la fonction getAll()
-$offresDao = new OffresDAO();
+$offresDao = new FilmDAO();
 
 $offers = $offresDao->getAll();
 
