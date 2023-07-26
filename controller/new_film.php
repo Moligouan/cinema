@@ -57,5 +57,5 @@ function actperso($num, $film, $acteurDao, $roleDao){
     }
     ${'role'.$num} = new Role($roleDao->fillid(), $_POST['personnage_'.$num], ${'acteur'.$num}->getId(), $film->getId());
     $stratus = $roleDao->add(${'role'.$num});
-
+    return $stratus;
 }
