@@ -17,6 +17,25 @@ class RoleDAO extends FilmDao
         return ($role);
     }
 
+    public function fillid()
+    {
+        $query = $this->BDD->prepare("SELECT idRole FROM roles");
+        $query->execute();
+        $countid = 1;
+        while ($data = $query->fetch()) {
+            $test = $this->BDD->prepare('SELECT * FROM roles WHERE roles.idRole = :id_role');
+            $test->execute(array(':id_role' => $countid));
+            $data = $test->fetch();
+            if ($data != NULL){
+                $countid = $countid + 1;
+            }
+            else{
+                return ($countid);
+            }
+        }
+        return ($countid + 1);
+    }
+
     //Ajouter une offre
     public function add($data)
     {
