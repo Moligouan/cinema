@@ -18,7 +18,7 @@
 
 			<a href="new_film">Creation</a>
 
-			<a href="logout">
+			<a id="logout" href="logout">
 				<button>Logout</button>
 			</a>
 		{% else %}
@@ -28,12 +28,10 @@
 
 		{% endif %}
 	</nav>
-	<div>
+	<form action="film" method="POST">
 		<input type="text" name="recherche">
-		<a href="Recherche">
-			<button>Recherche</button>
-		</a>
-	</div>
+		<button type="submit">Recherche</button>
+	</form>
 </header>
 {% if session.user is defined %}
 
