@@ -62,6 +62,17 @@ class FilmDAO extends Dao
         return ($film);
     }
 
+    public function search($text){
+        $query = $this->BDD->prepare("SELECT *  FROM films WHERE titre LIKE '%:text%'");
+        $query->execute(array(':text' => $text));
+        $film = array();
+        
+        while ($data = $query->fetch()) {
+            $film[] = new Film($data['idFilm'], $data['titre'], $data['realisateur'], $data['affiche'], $data['annee']);
+        }
+        return ($film);
+    }
+
     public function checkfilm($titre, $realisateur, $annee){
         $query = $this->BDD->prepare('SELECT * FROM films WHERE films.titre = :titre AND films.realisateur = :realisateur AND films.annee = :annee');
         $query->execute(array(':titre' => $titre, ':realisateur' => $realisateur, ':annee' => $annee));
