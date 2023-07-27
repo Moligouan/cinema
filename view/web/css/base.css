@@ -39,6 +39,10 @@ header a {
    margin: 5px;
 }
 
+header #logout {
+   opacity: 1;
+}
+
 header a:hover {
    opacity: 1;
    transition: 0.5s;
