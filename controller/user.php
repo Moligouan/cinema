@@ -2,6 +2,7 @@
 
 $userDAO = new UserDAO();
 $user = null;
+$users = null;
 $msg = "";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && (isset($_POST['email']) && isset($_POST['pw']))) {
@@ -14,14 +15,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && (isset($_POST['email']) && isset($_P
     } else if ($user == null) {
         $msg = "mot de passe incorrect";
     } else {
-        $_SESSION['user'] = $_POST['email'];
+
+        $_SESSION['user'] = $user->getUsername();
         header("Location: films");
+
     }
 
 }
 
 
 echo $twig->render('user.html.twig', [
-    'users' => $user,
-    'msg' => $msg
+    'users' => $users,
+    'msg' => $msg,
 ]);
