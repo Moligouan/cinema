@@ -1,45 +1,108 @@
-{% if session.user is null %}
+<div id="container">
+	{% if session.user is null %}
 
-	<form method="POST" action="register" class="register">
-		<div>
-			<label for="Username">Username :
-			</label>
-			<input type="Username" name="username" required>
-		</div>
+		<form method="POST" action="register" id="register">
+			<h2>
+				Créer un Compte
+			</h2>
+			<div>
+				<label for="Username">Username :
+				</label>
+				<input type="text" name="username" required>
+				<div class="message">Username can contain any letters or numbers, without space</div>
+			</div>
+			<div>
+				<label for="email">Email :
+				</label>
+				<input type="email" name="email" required>
+				<div class="message">Please provide your E-mail</div>
+				<p class="warning">{{errMsg}}</p>
+			</div>
+			<div>
+				<label for="pw">Mot de passe :
+				</label>
+				<input type="password" name="pw">
+				<div class="message">Password should be at least 4 characters</div>
+			</div>
+			<div>
+				<label for="pw">Confirmer le mot de passe :
+				</label>
+				<input type="password" name="confirmPW">
+				<div class="message">Please confirm password</div>
+			</div>
+			<input type="submit" name="register" value="Register" class="button" required>
+			<p>{{msg}}</p>
+		</form>
+
+	{% endif %}
+
+	<form method="POST" action="user" id="user">
+		<h2>
+			Identification
+		</h2>
+
 		<div>
 			<label for="email">Email :
 			</label>
 			<input type="email" name="email" required>
-			<p class="warning">{{errMsg}}</p>
+
+			<div class="message">Please provide your E-mail</div>
 		</div>
 		<div>
 			<label for="pw">Mot de passe :
 			</label>
-			<input type="password" name="pw">
+			<input type="password" name="pw" required>
+			<div class="message">Password should be at least 4 characters</div>
 		</div>
-		<div>
-			<label for="pw">Confirmer le mot de passe :
-			</label>
-			<input type="password" name="confirmPW">
-		</div>
-		<input type="submit" name="register" required>
-		<p>{{msg}}</p>
+		<input type="submit" name="user" value="Login" class="button" required>
 	</form>
+</div>
+<style>
+	#register {
+		margin-left: 300px;
+	}
 
-{% endif %}
+	#user {
 
-<form method="POST" action="user" class="register">
-	<div>
-		<label for="email">Email :
-		</label>
-		<input type="email" name="email" required>
-	</div>
-	<div>
-		<label for="pw">Mot de passe :
-		</label>
-		<input type="password" name="pw" required>
-	</div>
-	<input type="submit" name="user" required>
-</form>
+		margin-left: 250px;
 
+	}
+	#container {
+		display: flex;
+		height: 100%
+	}
+	.message {
+		display: inline-block;
+		font-size: 12px;
+		font-style: italic;
+	}
+	input {
+		size: 20px;
+	}
+	label {
+		font-size: 25px;
+	}
+	#register input,
+	label {
+		display: block;
+		font-size: 25px
+	}
+	#user input,
+	label {
+		display: block;
+		font-size: 25px;
+
+	}
+	#user div input {
+		width: 100%
+	}
+	#register div input {
+		width: 100%
+	}
+	.button {
+		padding: 10px;
+		background-color: green;
+		color: white;
+	}
+</style>
 
