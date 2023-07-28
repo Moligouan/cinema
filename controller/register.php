@@ -24,11 +24,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && (!empty($_POST['email']) && !empty($
         }
     }
 }
-var_dump($_SESSION['user']);
+
 
 
 echo $twig->render('user.html.twig', [
-    'users' => $user,
     'msg' => $msg,
     'errMsg' => $errMsg
 ]);
