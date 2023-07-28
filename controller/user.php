@@ -25,6 +25,5 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && (isset($_POST['email']) && isset($_P
 
 
 echo $twig->render('user.html.twig', [
-    'users' => $users,
     'msg' => $msg,
 ]);
