@@ -90,10 +90,11 @@ class UserDAO extends Dao
     {
     }
 
-}
 
     public function fillid()
     {
     }
     
 }
+}
+
