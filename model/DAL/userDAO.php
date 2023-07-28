@@ -69,7 +69,9 @@ class UserDAO extends Dao
             if ($q->rowCount() > 0) {
 
                 if (password_verify($_POST['pw'], $user['password'])) {
-                    $user = new User(null, null, $user['email'], $user['password']);
+                    $user = new User(null, $user['userName'], $user['email'], $user['password']);
+
+
                 } else {
                     $user = null;
                 }
@@ -79,11 +81,16 @@ class UserDAO extends Dao
         } catch (Exception $err) {
             return "ERROR : " . $err->getMessage();
         }
+        var_dump($user);
         return $user;
     }
+
+
     public function delete($id)
     {
     }
+
+}
 
     public function fillid()
     {
