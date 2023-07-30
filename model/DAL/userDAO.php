@@ -81,7 +81,7 @@ class UserDAO extends Dao
         } catch (Exception $err) {
             return "ERROR : " . $err->getMessage();
         }
-        var_dump($user);
+        
         return $user;
     }
 
