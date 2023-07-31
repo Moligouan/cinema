@@ -17,6 +17,7 @@ class RoleDAO extends FilmDao
         return ($role);
     }
 
+    //Récupére le premier id non utilisé
     public function fillid()
     {
         $query = $this->BDD->prepare("SELECT idRole FROM roles");
@@ -53,12 +54,25 @@ class RoleDAO extends FilmDao
     //Récupérer plus d'info sur 1 offre
     public function getOne($id)
     {
-
         $query = $this->BDD->prepare('SELECT * FROM roles WHERE roles.idRole = :id_role');
         $query->execute(array(':id_role' => $id));
         $data = $query->fetch();
-        $offer = new Film($data['idRole'], $data['personnage'], $data['idActeur'], $data['idFilm']);
-        return ($offer);
+        $role = new Role($data['idRole'], $data['personnage'], $data['idActeur'], $data['idFilm']);
+        return ($role);
+    }
+
+    //Récupére les roles d'un film spécifique
+    public function getRole($idFilm)
+    {
+        $query = $this->BDD->prepare("SELECT idActeur, idFilm, personnage, idRole FROM roles WHERE idFilm = :id_Film");
+        $query->execute(array(':id_Film' => $idFilm));
+        $roles = array();
+    
+        while ($data = $query->fetch()) {
+            $roles[] = new Role($data['idRole'], $data['personnage'], $data['idActeur'], $data['idFilm']);
+        }
+    
+        return ($roles);
     }
 
     public function delete($id)
