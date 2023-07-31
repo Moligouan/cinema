@@ -1,16 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of Offres
- *
- * @author Vince
- */
 class Role
 {
 
@@ -27,7 +16,7 @@ class Role
         $this->setPersonnage($personnage);
         $this->setIdAct($idAct);
         $this->setIdFilm($idFilm);
-        $this->setNom($acteur);
+        $this->setActeur($acteur);
     }
 
     
@@ -77,7 +66,7 @@ class Role
      */ 
     public function getActeur()
     {
-        return $this->acteur;
+        return $this->acteur[0];
     }
 
     /**
@@ -87,7 +76,7 @@ class Role
      */ 
     public function setActeur($acteur)
     {
-        $this->acteur = $acteur;
+        $this->acteur[0] = $acteur;
 
         return $this;
     }
