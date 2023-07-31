@@ -1,4 +1,4 @@
-<form action="creer_film" method="POST" id="add">
+<form action="new_film" method="POST" id="add">
 	<section id="addta">
 		<div>
 			<label for="titre">Titre</label>
@@ -36,17 +36,7 @@
 </form>
 <script src="view/web/js/script.js"></script>
 <div>
+	{# Affiche l'état de l'ajout du film #}
 	<p>{{message}}
-		:</p>
-	{% if film is defined %}
-		{{film.getId}}
-		:
-		{{film.getTitre}}
-		:
-		{{film.getRealisateur}}
-		:
-		{{film.getAffiche}}
-		:
-		{{film.getAnnee}}
-	{% endif %}
+	</p>
 </div>
