@@ -1,16 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of Offres
- *
- * @author Vince
- */
 class Film
 {
 
@@ -137,23 +126,28 @@ class Film
 
 // -----------------------------------
 
-    /**
-     * Get the value of role
-     */ 
-    public function getRole()
+    //Récupére un role spécifique
+    public function getRole($a)
+    {
+            return $this->role[$a];
+    }
+
+    //Récupére tout les roles
+    public function getRoles()
     {
         return $this->role;
     }
 
-    /**
-     * Set the value of role
-     *
-     * @return  self
-     */ 
     public function setRole($role)
     {
         $this->role = $role;
 
         return $this;
+    }
+
+    //Ajoute un role à une position spécifique
+    public function addRole($role,int $pos)
+    {
+        $this->role[$pos] = $role;
     }
 }
