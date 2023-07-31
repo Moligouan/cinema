@@ -1,48 +1,51 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-        <title>MVC with Twig</title>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="view/web/css/base.css" media="screen" />
-        <link rel="shortcut icon" href="view/web/img/favicon.ico" />
-</head>
-<body>
-<header>
-	<nav>
-{#}Navbar(differente si utilisateur connecté est definie{#}
-		<img src="https://cdn-icons-png.flaticon.com/512/92/92196.png">
-		<h1>Médiathèque</h1>
+	<head>
+		<title>MVC with Twig</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="view/web/css/base.css" media="screen"/>
+		<link rel="shortcut icon" href="view/web/img/favicon.ico"/>
+	</head>
+	<body>
+		<header id="head">
+			<nav>
+				<img src="https://cdn-icons-png.flaticon.com/512/92/92196.png">
+				<h1>Médiathèque</h1>
+				{% if session.user is defined %}
+
+					<a href="films">Films</a>
+
+					<a href="new_film">Creation</a>
+
+					<a id="logout" href="logout">
+						<button>Logout</button>
+					</a>
+				{% else %}
+					<a href="films">Films</a>
+
+					<a href="user">Compte</a>
+
+				{% endif %}
+			</nav>
+			<form action="films" method="POST">
+				<input id="search" type="text" name="recherche">
+				<button type="submit">Recherche</button>
+			</form>
+		</header>
 		{% if session.user is defined %}
 
-			<a href="films">Films</a>
+			<p id="hc">
+				Bienvenue sur notre Médiathèque
+				{{ users }}
+				!</p>
 
-			<a href="new_film">Creation</a>
-
-			<a id="logout" href="logout">
-				<button>Logout</button>
-			</a>
 		{% else %}
-			<a href="films">Films</a>
 
-			<a href="user">Compte</a>
+			<p id="hnc">
+				connectez vous pour créer des films</p>
 
 		{% endif %}
-	</nav>
-	<form action="film" method="POST">
-		<input type="text" name="recherche">
-		<button type="submit">Recherche</button>
-	</form>
-</header>
-{% if session.user is defined %}
-
-	<p id="hc">
-		Bienvenue sur notre Médiathèque {{ users }} !</p>
-
-{% else %}
-
-	<p id="hnc">
-		connectez vous pour créer des films</p>
-
-{% endif %}
-<hr>
+		<hr>
+	</body>
+</html>
