@@ -17,6 +17,7 @@ class FilmDAO extends Dao
         return ($film);
     }
     
+    //Récupére le premier id non utilisé
     public function fillid()
     {
         $query = $this->BDD->prepare("SELECT idFilm FROM films");
@@ -62,9 +63,10 @@ class FilmDAO extends Dao
         return ($film);
     }
 
+    //Récupérer les films basé sur un text donné (fonction recherche)
     public function search($text){
-        $query = $this->BDD->prepare("SELECT *  FROM films WHERE titre LIKE '%:text%'");
-        $query->execute(array(':text' => $text));
+        $query = $this->BDD->prepare("SELECT *  FROM films WHERE titre LIKE :text");
+        $query->execute(array(':text' => '%'.$text.'%'));
         $film = array();
         
         while ($data = $query->fetch()) {
@@ -73,6 +75,7 @@ class FilmDAO extends Dao
         return ($film);
     }
 
+    //Vérifie si un film est déjà existant
     public function checkfilm($titre, $realisateur, $annee){
         $query = $this->BDD->prepare('SELECT * FROM films WHERE films.titre = :titre AND films.realisateur = :realisateur AND films.annee = :annee');
         $query->execute(array(':titre' => $titre, ':realisateur' => $realisateur, ':annee' => $annee));
@@ -87,6 +90,22 @@ class FilmDAO extends Dao
 
     public function delete($id)
     {
+    }
+
+// Non utilisé (test requete pour création table avec toutes les infos (trop de doublon)
+
+private $pdo;
+
+    public function getAllFilms()
+    {
+        // Requête pour récupérer tous les films et leurs informations
+        $query = "SELECT f.idFilm, f.titre, f.realisateur, f.affiche, f.annee, a.nom, a.prenom, r.personnage
+                  FROM films f
+                  LEFT JOIN roles r ON f.idFilm = r.idFilm
+                  LEFT JOIN acteurs a ON r.idActeur = a.idActeur";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
 }
