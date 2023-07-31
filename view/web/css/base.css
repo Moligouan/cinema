@@ -15,16 +15,16 @@ body {
    box-shadow: 0px 8px 20px black;
 }
 
-header img {
+#head img {
    width: 30px;
 }
 
-header nav {
+#head nav {
    display: flex;
    align-items: center;
 }
 
-header form {
+#head form {
    margin-right: 20px;
 }
 
@@ -37,27 +37,27 @@ header form {
    text-align: center;
 }
 
-header h1 {
+#head h1 {
    font-size: 25px;
    margin: 5px;
 }
 
-header a {
+#head a {
    text-decoration: none;
    opacity: 0.5;
    margin: 5px;
 }
 
-header #logout {
+#head #logout {
    opacity: 1;
 }
 
-header a:hover {
+#head a:hover {
    opacity: 1;
    transition: 0.5s;
 }
 
-header button {
+#head button {
    background-color: rgba(53, 58, 64, 255);
    border: 2px solid white;
    color: white;
@@ -65,8 +65,8 @@ header button {
    padding: 8px;
 }
 
-header a,
-header button {
+#head a,
+#head button {
    font-size: 17px;
    color: white;
 }
