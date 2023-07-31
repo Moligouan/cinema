@@ -12,8 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["recherche"])) {
 else {
     $film = $filmDao->getAll();
 }
-// $role = $roleDao->getRole($film[0]->getId());
-// $acteur = $acteurDao->getOne($role[0]->getIdAct());
+
 //test de la fonction qui fait correspondre film avec acteur et role
 $a = 0;
 $b = 0;
