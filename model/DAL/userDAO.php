@@ -96,5 +96,5 @@ class UserDAO extends Dao
     }
     
 }
-}
+
 
