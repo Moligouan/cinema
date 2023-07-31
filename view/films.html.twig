@@ -41,11 +41,7 @@
 				<div
 					class="carousel-inner " role="listbox">
 
-					{# <div class="item active" width="200" height="105">
-																																								
-																					<h3>Carousel</h3>
-																																								
-																				</div> #}
+			{#} initialise la boucle carousel a 1 pour ne pas avoir un item active vide a l'index [0]{#}
 					{% for film in films %}
 						{% if loop.index == 1 %}
 							<div class="item active">
