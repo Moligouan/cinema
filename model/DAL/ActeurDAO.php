@@ -17,6 +17,7 @@ class ActeurDAO extends RoleDao
         return ($acteur);
     }
 
+    //Récupére le premier id non utilisé
     public function fillid()
     {
         $query = $this->BDD->prepare("SELECT idActeur FROM acteurs");
@@ -54,13 +55,14 @@ class ActeurDAO extends RoleDao
     public function getOne($id)
     {
 
-        $query = $this->BDD->prepare('SELECT * FROM acteur WHERE acteur.idActeur = :id_acteur');
+        $query = $this->BDD->prepare('SELECT * FROM acteurs WHERE acteurs.idActeur = :id_acteur');
         $query->execute(array(':id_acteur' => $id));
         $data = $query->fetch();
         $acteur = new Acteur($data['idActeur'], $data['nom'], $data['prenom']);
-        return ($offer);
+        return ($acteur);
     }
 
+    //Vérifie si un acteur est déjà existant
     public function checkact($nom, $prenom){
         $query = $this->BDD->prepare('SELECT * FROM acteurs WHERE acteurs.nom = :nom AND acteurs.prenom = :prenom');
         $query->execute(array(':nom' => $nom, ':prenom' => $prenom));
