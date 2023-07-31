@@ -1,6 +1,6 @@
 <div id="container">
 	{% if session.user is null %}
-
+{#}Formulaire creation compte {#}
 		<form method="POST" action="register" id="register">
 			<h2>
 				Créer un Compte
@@ -35,7 +35,7 @@
 		</form>
 
 	{% endif %}
-
+{#}Formulaire identification {#}
 	<form method="POST" action="user" id="user">
 		<h2>
 			Identification
