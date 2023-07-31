@@ -24,7 +24,7 @@ class UserDAO extends Dao
     {
 
         try {
-            // Préaration des valeurs à stocker dans la requête, qui sortira un booléen qui indiquera si la requête s'est bien exécutée.
+            // Préaration des valeurs à stocker dans la requête, qui sortira un booléen qui indiquera si la requête s'est bien exécutée. et hashage du password avec la fonction pasword hash
             $hashPW = password_hash($user->getPassword(), PASSWORD_DEFAULT);
             $values = [':username' => $user->getUsername(), ':email' => $user->getEmail(), ':password' => $hashPW];
             $q = 'INSERT INTO users (username,email,password) VALUES (:username,:email, :password )';
@@ -39,7 +39,7 @@ class UserDAO extends Dao
         }
     }
 
-    // Vérifier l'inscription d'un user via son email
+    // Vérifier la création d'un user via son email (verifie que l'email n'existe pas dans BDD)
     public function checkNew($newUser)
     {
         try {
@@ -57,7 +57,7 @@ class UserDAO extends Dao
         }
     }
 
-    //Vérifier l'email et le mdp de l'user POUR LA CONNEXION
+    //Vérifier l'email et le mdp de l'user POUR LA CONNEXION (mdp correspondent et email existe)
     public function getOne($user)
     {
         try {
